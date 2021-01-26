@@ -1,0 +1,12 @@
+{
+  "name": "estructuras-datos_js",
+  "version": "1.0.0",
+  "description": "Ejemplos curso de estructuras de datos",
+  "scripts": {
+    "array": "node src/array/array.js"
+  },
+  "main": "index.js",
+  "author": "Nico Castañeda <nickcar13@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
