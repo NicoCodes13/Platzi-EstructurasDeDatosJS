@@ -35,6 +35,9 @@ class MyArray {
     delete this.data[this.length - 1];
     this.length--;
   }
+  shift() {
+    return this.delete(0);
+  }
 }
 
 const myArray = new MyArray();
