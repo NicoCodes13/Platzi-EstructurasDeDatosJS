@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Ejemplos curso de estructuras de datos",
   "scripts": {
-    "array": "node src/array/array.js"
+    "array": "node src/array/array.js",
+    "hash": "node src/hashTable/hashtable.js"
   },
   "main": "index.js",
   "author": "Nico Castañeda <nickcar13@gmail.com>",
