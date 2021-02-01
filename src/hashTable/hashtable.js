@@ -46,7 +46,7 @@ class HashTable {
     if (currentBucket) {
       for (let i = 0; i < currentBucket.length; i++) {
         if (currentBucket[i][0] === key) {
-          const deletedValue = this.data[address][i];
+          const deletedValue = currentBucket[i];
           this.data[address].splice(i, 1);
           return deletedValue;
         }
