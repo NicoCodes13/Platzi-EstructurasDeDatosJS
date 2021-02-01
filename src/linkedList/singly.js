@@ -1,45 +1,46 @@
-// funcionamiento de la lista
-// 1 --> 2 --> 3 --> 4 --> 5 --> null
-// Asi cada --> indica el pointer o apuntador al siguente valor
-
-// //esta es la estructura final de una linkedlist
-// let singlyLinkedList = {
-//   head: {
-//     value: 1,
-//     next: {
-//       value: 2,
-//       next: {
-//         value: 3,
-//         next: {
-//           value: 4,
-//           next: null,
-//         },
-//       },
-//     },
-//   },
-// };
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
-
+// los valores de tail y head son apuntadores!!!
 class MySiglyLinkedList {
   constructor(value) {
     this.head = {
       value: value,
       next: null,
     };
+    // Al hacer esto generamos una referencia al objeto
+    // mientras esta asigancion este presente lo que pase en tail
+    // afectara a head ya que son REFERENCIAS no el objeto como tal
     this.tail = this.head;
 
     this.length = 1;
   }
   append(value) {
-    this.tail = new Node(value);
-    this.length = 2;
-    this.head.next = this.tail;
+    const newTale = new Node(value);
+
+    this.tail.next = newTale;
+    this.tail = newTale;
+    this.length++;
+
+    return newTale;
+  }
+  prepend(value) {
+    const newHead = new Node(value);
+    newHead.next = this.head;
+    this.head = newHead;
+    this.length++;
   }
 }
 
 let MyLinkedList = new MySiglyLinkedList(1);
+
+console.log(MyLinkedList);
+MyLinkedList.append(2);
+MyLinkedList.append(3);
+MyLinkedList.append(4);
+MyLinkedList.append(5);
+
+console.log(MyLinkedList);
