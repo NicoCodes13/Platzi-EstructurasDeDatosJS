@@ -33,14 +33,59 @@ class MySiglyLinkedList {
     this.head = newHead;
     this.length++;
   }
+  insert(index, value) {
+    if (index >= this.length) {
+      return this.append(value);
+    }
+
+    const newNode = new Node(value);
+    const firstPointer = this.getTheIndex(index - 1);
+    const holdingPointer = firstPointer.next;
+    firstPointer.next = newNode;
+    newNode.next = holdingPointer;
+
+    this.length++;
+
+    return this;
+  }
+  getTheIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+
+  remove(index) {
+    if (index >= this.length) {
+      const lastNode = this.getTheIndex(this.length - 2);
+      lastNode.next = null;
+      this.tail = lastNode;
+      this.length--;
+      return this;
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+      length--;
+      return this;
+    }
+    const previousNode = this.getTheIndex(index - 1);
+    const actualNode = this.getTheIndex(index);
+    previousNode.next = actualNode.next;
+    this.length--;
+    return this;
+  }
 }
 
-let MyLinkedList = new MySiglyLinkedList(1);
+let MyLinkedList = new MySiglyLinkedList(0);
 
 console.log(MyLinkedList);
+MyLinkedList.append(1);
 MyLinkedList.append(2);
 MyLinkedList.append(3);
 MyLinkedList.append(4);
-MyLinkedList.append(5);
 
 console.log(MyLinkedList);
