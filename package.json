@@ -6,7 +6,8 @@
     "array": "node src/array/array.js",
     "hash": "node src/hashTable/hashtable.js",
     "singly": "node src/linkedList/singly.js",
-    "stack": "node src/stack/stack.js"
+    "stack": "node src/stack/stack.js",
+    "graph": "node src/graph/graph.js"
   },
   "main": "index.js",
   "author": "Nico Castañeda <nickcar13@gmail.com>",
